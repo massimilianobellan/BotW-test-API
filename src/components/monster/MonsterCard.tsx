@@ -31,7 +31,7 @@ export default function MonsterCard({ monster }: IProps) {
           </Grid>
         </Grid.Container>
         <Card.Divider />
-        <Grid.Container>
+        <Grid.Container gap={1}>
           <>
             <Grid xs={12}>
               <Text h4>Drops:</Text>
