@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { EqiupmentInterface } from "../../interfaces/EquipmentInterface";
 import { Grid, Loading, Text } from "@nextui-org/react";
 import EquipmentCard from "./EquipmentCard";
@@ -11,11 +11,15 @@ export default function Equipments() {
     return response.json();
   };
 
-  const { data, status } = useQuery("equipments", fetchEquipments, {
-    refetchOnWindowFocus: false,
-  });
+  const { data, status, fetchStatus } = useQuery(
+    ["equipments"],
+    fetchEquipments,
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
 
-  if (status === "loading") {
+  if (fetchStatus === "fetching") {
     return (
       <div>
         <Loading />
@@ -24,7 +28,7 @@ export default function Equipments() {
     );
   }
 
-  if (status === "error") {
+  if (status === "error" || data.message === "Not found") {
     return (
       <div>
         <Text>Error</Text>

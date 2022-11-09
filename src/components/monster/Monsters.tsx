@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import MonsterCard from "./MonsterCard";
 import { MonsterInterface } from "../../interfaces/MonsterInterface";
 import { Grid, Loading, Text } from "@nextui-org/react";
@@ -11,11 +11,11 @@ export default function Monsters() {
     return response.json();
   };
 
-  const { data, status } = useQuery("monsters", fetchMonsters, {
+  const { data, status, fetchStatus } = useQuery(["monsters"], fetchMonsters, {
     refetchOnWindowFocus: false,
   });
 
-  if (status === "loading") {
+  if (fetchStatus === "fetching") {
     return (
       <div>
         <Loading />
@@ -24,7 +24,7 @@ export default function Monsters() {
     );
   }
 
-  if (status === "error") {
+  if (status === "error" || data.message === "Not found") {
     return (
       <div>
         <Text>Error</Text>

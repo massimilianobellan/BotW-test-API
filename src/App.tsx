@@ -2,7 +2,7 @@ import "./App.css";
 import Monsters from "./components/monster/Monsters";
 import Equipments from "./components/equipment/Equipments";
 import Creature from "./components/creature/Creatures";
-import { QueryClientProvider, QueryClient } from "react-query";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { Container, Navbar, Button } from "@nextui-org/react";
 import logo from "../src/assets/logo.png";
 import { useState } from "react";

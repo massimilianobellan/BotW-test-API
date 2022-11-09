@@ -1,5 +1,5 @@
 import { Loading, Text, Grid } from "@nextui-org/react";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { CreatureInterface } from "../../interfaces/CreatureInterface";
 import CreatureCard from "./CreatureCard";
 
@@ -11,11 +11,11 @@ export default function Creatures() {
     return response.json();
   };
 
-  const { data, status } = useQuery("creature", fetchCreatures, {
+  const { data, status, fetchStatus } = useQuery(["creature"], fetchCreatures, {
     refetchOnWindowFocus: false,
   });
 
-  if (status === "loading") {
+  if (fetchStatus === "fetching") {
     return (
       <div>
         <Loading />
@@ -24,7 +24,7 @@ export default function Creatures() {
     );
   }
 
-  if (status === "error") {
+  if (status === "error" || data.message === "Not found") {
     return (
       <div>
         <Text>Error</Text>
