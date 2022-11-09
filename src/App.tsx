@@ -1,5 +1,6 @@
 import "./App.css";
 import Monsters from "./components/monster/Monsters";
+import Equipments from "./components/equipment/Equipments";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { Container, Navbar, Button } from "@nextui-org/react";
 import logo from "../src/assets/logo.png";
@@ -19,8 +20,7 @@ function App() {
           <Button
             auto
             color={"gradient"}
-            bordered
-            ghost
+            bordered={menu === "monster" ? false : true}
             onPress={() => setMenu("monster")}
           >
             Monsters
@@ -28,8 +28,7 @@ function App() {
           <Button
             auto
             color={"gradient"}
-            bordered
-            ghost
+            bordered={menu === "equipment" ? false : true}
             onPress={() => setMenu("equipment")}
           >
             Equipment
@@ -37,35 +36,17 @@ function App() {
           <Button
             auto
             color={"gradient"}
-            bordered
-            ghost
-            onPress={() => setMenu("metarials")}
-          >
-            Materials
-          </Button>
-          <Button
-            auto
-            color={"gradient"}
-            bordered
-            ghost
+            bordered={menu === "creatures" ? false : true}
             onPress={() => setMenu("creatures")}
           >
             Creatures
-          </Button>
-          <Button
-            auto
-            color={"gradient"}
-            bordered
-            ghost
-            onPress={() => setMenu("treasure")}
-          >
-            Treasure
           </Button>
         </Navbar.Content>
       </Navbar>
       <Container>
         <QueryClientProvider client={queryClient}>
           {menu === "monster" && <Monsters />}
+          {menu === "equipment" && <Equipments />}
         </QueryClientProvider>
       </Container>
     </div>

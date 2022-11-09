@@ -5,20 +5,13 @@ export interface IProps {
   monster: MonsterInterface;
 }
 
-function titleCase(str: string) {
-  var splitStr = str.toLowerCase().split(" ");
-  for (var i = 0; i < splitStr.length; i++) {
-    splitStr[i] =
-      splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-  }
-  return splitStr.join(" ");
-}
-
 export default function MonsterCard({ monster }: IProps) {
   return (
     <Card>
       <Card.Header>
-        <Text h3>{titleCase(monster.name)}</Text>
+        <Text h3 transform="capitalize">
+          {monster.name}
+        </Text>
       </Card.Header>
       <Card.Divider />
       <Card.Body>
@@ -39,7 +32,7 @@ export default function MonsterCard({ monster }: IProps) {
             {monster.drops != null &&
               monster.drops.map((drop, index) => (
                 <Grid xs={4} key={index}>
-                  <Text>- {titleCase(drop)}</Text>
+                  <Text transform="capitalize">- {drop}</Text>
                 </Grid>
               ))}
           </>
