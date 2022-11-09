@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Breath of the Wild tiny compendium
 
 Testing React query to connect to a Zelda Breath of the Wild API and display the categories
 

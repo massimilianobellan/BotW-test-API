@@ -1,4 +1,4 @@
-import { EqiupmentInterface } from "../../interfaces/Equipment";
+import { EqiupmentInterface } from "../../interfaces/EquipmentInterface";
 import { Card, Text, Grid } from "@nextui-org/react";
 
 export interface IProps {

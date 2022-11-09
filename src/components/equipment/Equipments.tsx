@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { EqiupmentInterface } from "../../interfaces/Equipment";
+import { EqiupmentInterface } from "../../interfaces/EquipmentInterface";
 import { Grid, Loading, Text } from "@nextui-org/react";
 import EquipmentCard from "./EquipmentCard";
 

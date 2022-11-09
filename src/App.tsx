@@ -1,6 +1,7 @@
 import "./App.css";
 import Monsters from "./components/monster/Monsters";
 import Equipments from "./components/equipment/Equipments";
+import Creature from "./components/creature/Creatures";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { Container, Navbar, Button } from "@nextui-org/react";
 import logo from "../src/assets/logo.png";
@@ -8,7 +9,7 @@ import { useState } from "react";
 
 const queryClient = new QueryClient();
 function App() {
-  const [menu, setMenu] = useState("monster");
+  const [menu, setMenu] = useState("monsters");
 
   return (
     <div className="App">
@@ -20,8 +21,8 @@ function App() {
           <Button
             auto
             color={"gradient"}
-            bordered={menu === "monster" ? false : true}
-            onPress={() => setMenu("monster")}
+            bordered={menu === "monsters" ? false : true}
+            onPress={() => setMenu("monsters")}
           >
             Monsters
           </Button>
@@ -45,8 +46,9 @@ function App() {
       </Navbar>
       <Container>
         <QueryClientProvider client={queryClient}>
-          {menu === "monster" && <Monsters />}
+          {menu === "monsters" && <Monsters />}
           {menu === "equipment" && <Equipments />}
+          {menu === "creatures" && <Creature />}
         </QueryClientProvider>
       </Container>
     </div>
