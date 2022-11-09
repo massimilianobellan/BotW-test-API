@@ -4,6 +4,10 @@ Testing React query to connect to a Zelda Breath of the Wild API and display the
 
 ## Scripts
 
+### `npm install`
+
+Runs the instrall script, necessary before running it for the first time
+
 ### `npm start`
 
 Runs the app in the development mode.\
