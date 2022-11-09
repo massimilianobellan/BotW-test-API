@@ -17,10 +17,14 @@ export default function Monsters() {
 
   if (fetchStatus === "fetching") {
     return (
-      <div>
-        <Loading />
-        <Text>Loading...</Text>
-      </div>
+      <Grid.Container gap={3} justify={"center"}>
+        <Grid xs={1}>
+          <Loading />
+        </Grid>
+        <Grid xs={1}>
+          <Text h3>Loading...</Text>
+        </Grid>
+      </Grid.Container>
     );
   }
 
